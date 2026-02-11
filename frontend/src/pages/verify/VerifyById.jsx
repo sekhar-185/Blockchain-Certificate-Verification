@@ -148,11 +148,18 @@ setTimeout(() => {
 
         {/* ================= BLOCKCHAIN STATUS ================= */}
         <div className={`
-          relative rounded-md p-8 shadow-2xl
-          ${dark
+          relative rounded-md p-8 shadow-2xl transition-all duration-500 overflow-hidden
+          ${dark 
             ? "bg-gradient-to-br from-slate-900 to-slate-800 text-white"
             : "bg-white/60 backdrop-blur-xl border border-white/40"}
         `}>
+
+    <img 
+    src="/images/blockchainStatus.png" 
+    alt="Network"
+    className={`absolute inset-0 w-full h-full object-cover ${dark?"opacity-100":"opacity-0"} pointer-events-none mix-blend-overlay`}
+   />
+
           <button
             onClick={() => setDark(!dark)}
             className="absolute top-2 right-2 p-2 rounded-full bg-white/20"
@@ -189,7 +196,28 @@ setTimeout(() => {
       {/* ================= DETAILS (ACTIVE + REVOKED) ================= */}
       {(isActive || isRevoked) && (
         <div className="bg-white/60 backdrop-blur-xl
-        border border-white/40 shadow-2xl rounded-3xl p-10">
+        border border-white/40 shadow-2xl rounded-3xl p-10  relative overflow-hidden  group">
+
+
+{/* SUBTLE REALISM: Holographic Security Ribbon */}
+    <div className="absolute top-0 right-0 w-12 h-full opacity-60 pointer-events-none">
+      <img 
+        src="/images/security-ribbon.png" 
+        className="w-full h-full object-cover mix-blend-overlay"
+        alt="Security Feature"
+      />
+    </div>
+
+<div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-r from-white/30 to-transparent pointer-events-none" />
+
+    {/* SUBTLE REALISM: 3D Holographic Seal (Tucked in bottom right) */}
+    <img 
+      src="/images/micro-seal.png" 
+      className="absolute bottom-6 right-16 w-16 h-16 opacity-20 group-hover:opacity-40 transition-opacity duration-500 pointer-events-none"
+      alt="Official Seal"
+    />
+
+
           <h3 className="text-xl font-bold mb-6">Certificate Details</h3>
 
           <div className="grid grid-cols-2 gap-6 text-sm mb-8">

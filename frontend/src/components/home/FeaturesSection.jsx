@@ -42,27 +42,79 @@ const features = [
 
 export default function FeaturesSection() {
   return (
-    <section className="py-24 bg-white">
-      <h2 className="text-4xl font-bold text-center">
-        Enterprise-Grade Security
-      </h2>
-      <p className="text-center text-slate-600 mt-3">
-        Built with cutting-edge blockchain technology
-      </p>
+  <section className="relative py-28
+                    bg-gradient-to-br
+                    from-slate-50 via-blue-50 to-indigo-100
+                    text-slate-900 overflow-hidden">
 
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-10 px-10">
-        {features.map((f, i) => (
-          <div
-            key={i}
-            className="bg-white p-8 rounded-2xl shadow hover:shadow-xl transition"
-          >
-            <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-4">
-              <f.icon className="text-primary" />
+      {/* Glow Background Effects */}
+      <div className="absolute -top-40 -left-40 w-[500px] h-[500px]
+                      bg-blue-500/30 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 -right-40 w-[500px] h-[500px]
+                      bg-indigo-500/30 rounded-full blur-3xl" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
+
+        {/* SECTION HEADER */}
+        <div className="text-center">
+          <h2 className="text-4xl md:text-5xl font-extrabold">
+            Enterprise-Grade Security
+          </h2>
+
+          <p className="mt-4 text-slate-600 text-lg">
+            Built with cutting-edge blockchain technology
+          </p>
+        </div>
+
+        {/* FEATURE GRID */}
+        <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+          {features.map((f, i) => (
+            <div
+              key={i}
+              className="group relative
+                         bg-white backdrop-blur-xl
+                         border border-slate-200
+                         p-8 rounded-3xl
+                         transition-all duration-300
+                         hover:-translate-y-3
+                         hover:shadow-2xl
+                         hover:bg-white/15"
+            >
+
+              {/* ICON */}
+              <div className="w-14 h-14
+                              bg-gradient-to-br from-blue-500 to-indigo-500
+                              rounded-2xl flex items-center justify-center
+                              mb-6 shadow-lg
+                              group-hover:scale-110 transition">
+
+                <f.icon size={26} className="text-white" />
+              </div>
+
+              {/* TITLE */}
+              <h3 className="font-semibold text-xl">
+                {f.title}
+              </h3>
+
+              {/* DESCRIPTION */}
+              <p className="text-slate-600 mt-3 text-sm leading-relaxed">
+                {f.desc}
+              </p>
+
+              {/* Glow Hover Effect */}
+              <div className="absolute inset-0 rounded-3xl
+                              bg-gradient-to-r from-blue-600/0
+                              via-indigo-600/0 to-blue-600/0
+                              group-hover:from-blue-600/10
+                              group-hover:via-indigo-600/10
+                              group-hover:to-blue-600/10
+                              transition duration-500 pointer-events-none" />
+
             </div>
-            <h3 className="font-semibold text-lg">{f.title}</h3>
-            <p className="text-slate-600 mt-2 text-sm">{f.desc}</p>
-          </div>
-        ))}
+          ))}
+
+        </div>
       </div>
     </section>
   );
