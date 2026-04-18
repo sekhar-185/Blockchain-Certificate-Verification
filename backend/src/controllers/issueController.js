@@ -83,26 +83,26 @@ const issueCertificate = async (req, res) => {
     );
     await tx.wait();
 
-  // 🔟 Generate Verify URL + QR
-const verifyURL = `${process.env.BASE_URL}/api/public/verify/${certId}`;
-const qrCode = await generateQRCode(verifyURL);
+    // 🔟 Generate Verify URL + QR
+    const verifyURL = `${process.env.BASE_URL}/api/public/verify/${certId}`;
+    const qrCode = await generateQRCode(verifyURL);
 
-// 9️⃣ Store in MongoDB (WITH QR + VERIFY)
-const certificate = await Certificate.create({
-  certId,
-  certificateCategory,
-  type,
-  title,
-  studentId: student._id,
-  instituteId,
-  sha256Hash,
-  ipfsCID,
-  ipfsURL: `https://green-decisive-rat-768.mypinata.cloud/ipfs/${ipfsCID}`,
-  blockchainTx: tx.hash,
-  verifyURL,
-  qrCode,
-  issuedAt: new Date()
-});
+    // 9️⃣ Store in MongoDB (WITH QR + VERIFY)
+    const certificate = await Certificate.create({
+      certId,
+      certificateCategory,
+      type,
+      title,
+      studentId: student._id,
+      instituteId,
+      sha256Hash,
+      ipfsCID,
+      ipfsURL: `https://green-decisive-rat-768.mypinata.cloud/ipfs/${ipfsCID}`,
+      blockchainTx: tx.hash,
+      verifyURL,
+      qrCode,
+      issuedAt: new Date()
+    });
 
 
     // 🧹 Cleanup

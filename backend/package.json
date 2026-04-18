@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --forceExit",
+    "test:coverage": "jest --coverage",
     "start": "node src/app.js",
     "dev": "nodemon src/app.js"
   },
@@ -25,6 +26,7 @@
     "qrcode": "^1.5.4"
   },
   "devDependencies": {
+    "jest": "^29.7.0",
     "nodemon": "^3.1.11"
   }
 }

@@ -33,34 +33,40 @@ export default function CreateStudent() {
   };
 
   return (
-    <div className="max-w-4xl">
+    <div className="mx-auto w-full max-w-4xl">
 
       <form
         onSubmit={submit}
-        className="relative bg-white/70 backdrop-blur-xl
-                   border border-white/50
-                   rounded-md p-10 shadow-2xl"
+        className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white
+                   shadow-[0_24px_60px_rgba(15,23,42,0.12)]"
       >
+        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-indigo-50 via-white to-cyan-50" />
+
         {/* HEADER */}
-        <div className="flex items-center gap-4 mb-8">
-          <div className="h-12 w-12 rounded-2xl
+        <div className="border-b border-slate-200 bg-gradient-to-r from-slate-900 via-slate-800 to-indigo-900 px-8 py-7 md:px-10">
+          <span className="mb-3 inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-slate-100">
+            Student Onboarding
+          </span>
+          <div className="flex items-center gap-4">
+            <div className="h-12 w-12 rounded-2xl
                           bg-gradient-to-br from-blue-600 to-indigo-600
                           flex items-center justify-center
-                          text-white shadow-lg">
-            <UserPlus />
-          </div>
-          <div>
-            <h2 className="text-2xl font-extrabold text-slate-900">
-              Create Student
-            </h2>
-            <p className="text-slate-500 text-sm">
-              Add a student to your institution
-            </p>
+                          text-white shadow-lg shadow-blue-500/30">
+              <UserPlus />
+            </div>
+            <div>
+              <h2 className="text-2xl font-extrabold text-white md:text-3xl">
+                Create Student
+              </h2>
+              <p className="text-sm text-slate-300">
+                Register a student profile for certificate issuance and verification
+              </p>
+            </div>
           </div>
         </div>
 
         {/* FORM GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 gap-6 px-8 py-8 md:grid-cols-2 md:px-10 md:py-10">
 
           <Field
             label="Student Name"
@@ -118,12 +124,12 @@ export default function CreateStudent() {
         {/* SUBMIT */}
         <button
           disabled={loading}
-          className="mt-10 w-full
+          className="md:col-span-2 mt-2 w-full
                      bg-gradient-to-r from-blue-600 to-indigo-600
-                     text-white py-4 rounded-xl
+                     text-white py-3.5 rounded-xl
                      font-semibold text-lg
                      flex items-center justify-center gap-3
-                     shadow-lg hover:opacity-90 transition
+                     shadow-lg shadow-blue-500/25 hover:from-blue-700 hover:to-indigo-700 transition
                      disabled:opacity-60"
         >
           {loading ? (
@@ -145,18 +151,18 @@ export default function CreateStudent() {
 function Field({ label, type = "text", ...props }) {
   return (
     <div>
-      <label className="block text-sm font-semibold text-slate-700 mb-2">
+      <label className="mb-2 block text-sm font-semibold text-slate-700">
         {label}
       </label>
       <input
         type={type}
         {...props}
         required
-        className="w-full px-4 py-3.5
-                   rounded-xl border
-                   bg-white
-                   focus:outline-none focus:ring-2
-                   focus:ring-blue-500 focus:border-blue-500
+        className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3.5
+                   text-slate-800 placeholder:text-slate-400
+                   shadow-sm
+                   focus:outline-none focus:ring-2 focus:ring-indigo-100
+                   focus:border-indigo-400
                    transition"
       />
     </div>

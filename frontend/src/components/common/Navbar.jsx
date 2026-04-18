@@ -15,7 +15,7 @@ export default function Navbar() {
       <div className="flex items-center justify-between px-10 py-4 max-w-7xl mx-auto">
 
         {/* LOGO */}
-        <div className="flex items-center gap-3">
+        <Link to="/" className="flex items-center gap-3">
           <div
             className="bg-gradient-to-br from-blue-600 to-indigo-600
                        text-white p-2.5 rounded-xl shadow-md"
@@ -25,7 +25,7 @@ export default function Navbar() {
           <span className="text-xl font-extrabold tracking-tight text-slate-900">
             BlockCert
           </span>
-        </div>
+        </Link>
 
         {/* LINKS */}
         <div className="flex items-center gap-8">

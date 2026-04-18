@@ -79,6 +79,7 @@ export default function App() {
 </Route>
 
 <Route path="/verify/:certId" element={<VerifyPublic />} />
+<Route path="/api/public/verify/:certId" element={<VerifyPublic />} />
 
 <Route path="/verify-hub" element={<VerifyHub />} />
 
